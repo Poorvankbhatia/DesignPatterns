@@ -1,0 +1,32 @@
+State pattern helps objects to control their own behaviour by changing their internal state.
+We localize the behaviour of each state so that if we make changes to one state we do not run in the risk of messing another
+code.
+
+State pattern allows an object to alter its behaviour when its internal state changes.
+Because the pattern encapsulates state into separate classes and delegates the object representing the current state,
+we know that the behaviour changes along with the internal state.
+
+The object will appear to change its class.
+From the perspective of a client if the object you are using completely changes its behaviour, then it appears to you that
+now the object is actually instantiated from another class.In reality we are using composition to give appearance of
+class change by simply referencing different state objects.
+
+Context is the class that can have number of internal states.
+Whenever a request is made to context it is delegated to the state to handle.
+The state interface defines a common interface for all the concrete states, the states all implement the same interface
+so they are interchangeable.
+Concrete states handle request from the context. Each concrete state provides its own implementation for a request. In
+this way when the context changes state behaviour will change as well.
+
+When state transitions are fixed they are appropriate put in context otherwise states.
+The disadvantage of having state transitions is that we create dependencies between state classes, it can be minimized
+by using getter-setter method on the context.
+
+The states are used by context to represent its internal state and behaviour, so all the request from state comes from the
+context, Clients don't directly change the state of the context.
+
+If we have lot of instances of context, it is possible to share state objects among them. Only requirement is that
+your state objects do not keep their owm internal context.
+To share states, assign each state a static instance variable, if your state needs to make use of instance variable or
+methods in the context, you will also have to give it a reference to the context in each handler method.
+

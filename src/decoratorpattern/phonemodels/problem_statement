@@ -1,0 +1,9 @@
+Let us assume that we are building a simple design to keep the data and model of the available mobile phones in the market.
+Here, we have a number of mobile phones to take into account with various models and overlapping specs.
+How can we implement the design?
+
+One way to do that is by using the traditional inheritance.
+We will create a base Phone class and multiple subclasses for different phone combinations in specs and the model.
+
+Here is the catch — we cannot create n number of mobile phones through inheritance,
+especially when we know specs will overlap for multiple phones.

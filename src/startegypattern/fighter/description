@@ -1,0 +1,4 @@
+Suppose we are building a game “Street Fighter”.
+For simplicity assume that a character may have four moves that is kick, punch, roll and jump.
+Every character has kick and punch moves, but roll and jump are optional. How would you model your classes?
+Fighter class will we have default implementation of normal actions.

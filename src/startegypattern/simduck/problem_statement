@@ -1,0 +1,5 @@
+Design a duck pond simulation game, SimUDuck.
+The game can show a large variety of duck species swimming and making quacking sounds.
+
+
+All ducks can quack and swim, but the display behaviour will be different for all ducks.

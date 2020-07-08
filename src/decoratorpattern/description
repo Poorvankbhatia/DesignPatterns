@@ -1,0 +1,49 @@
+Decorator pattern  attaches additional responsibilities to an object dynamically.
+Decorators provide an alternative way to subclassing for extending functionality
+
+There are ways of "inheriting" behaviour at runtime through composition and delegation.
+Inheritance via subclassing sets behaviour statically at compile time. In addition subclasses must inherit the
+same behaviour. But if we extend a class behaviour via composition then it can be done dynamically at runtime.
+We can add multiple responsibilities to objects through this technique, including responsibilities that were not
+thought by designers of superclass, without modifying superclass.
+
+Inheritance is static. You can’t alter the behavior of an existing object at runtime.
+You can only replace the whole object with another one that’s created from a different subclass.
+
+“Wrapper” is the alternative nickname for the Decorator pattern that clearly expresses the main idea of the pattern.
+A wrapper is an object that can be linked with some target object.
+
+The open close principle:
+Classes should be open for extension but closed for modification.
+
+
+---
+
+Decorators have the same supertype as the objects they decorate.
+One or more decorators can be used to wrap an object.
+Since decorator has the same supertype as the object it decorates, we can pass the decorated object in place of the
+original object.
+
+Decorator adds its own behaviour either before or/and after the delegating to the object it decorates to do the
+rest of the job.
+Since objects can be decorated at any point of time, so we can decorate objects dynamically & with as many decorators
+as we want.
+
+-> Each component can be used on its own or wrapped by a decorator.
+-> Each decorator HAS-A(wraps) a component, meaning it has a instance variable that holds reference to a component.
+-> Decorators implement/extend same interface/abstract class as the component they are going to decorate.
+-> Concrete Decorator has an instance variable for the thing it decorates i.e Component wrapped by decorator.
+
+Since decorators and objects they decorate need to have the same type(because they need to stand in place of component),
+so we use inheritance to achieve type matching, but we don't use inheritance to achieve behaviour.
+We acquire new behaviour not by subclassing but by composing objects together.
+
+If a code relies on specific concrete component's type decorators will break it.
+Decorators result in many small objects in your design , and overuse can be complex.
+
+Real World Decorators:
+
+-> Line Number Input Stream is a concrete decorator. It adds the ability to count line numbers as it reads data.
+-> Buffered Input Stream is a concrete decorator. It adds buffering behaviour to file input stream i.e bufferes input to
+improve performance.
+-> File Input Stream is the component being decorated

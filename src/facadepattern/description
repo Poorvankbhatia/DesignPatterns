@@ -1,0 +1,25 @@
+Facade Pattern:
+
+Provides a unified interface to a set of interfaces in a subsystem. It defines a high level interface that makes the
+subsystem easier to use.
+
+Decorator :  does not alter the interface but adds responsibility.
+Adapter : Converts one interface to another.
+Facade : Make the interface simpler.
+
+With facade you can take a complex subsystem and make it easier to use by implementing a facade class that provides one
+more reasonable interface.
+It does not encapsulate the subsystem classes, but merely provides a simplified interface to there property.
+Subsystem classes still are available for clients to use more specific interfaces.
+It allows us to decouple the client from the subsystem.
+The intent of the adapter system is to alter the interface so that it matches the client expectations but facade is to
+provide a simpler interface to the subsystem.
+
+
+Principle of Least knowledge:
+When designing the system , for any object be careful about the number of classes it interacts with and how it comes to
+interact with those classes.
+
+In Java programming, we must have connected to a database to fetch some data. We simply call the method
+dataSource.getConnection() to get the connection but internally a lot of things happen such as loading the driver,
+creating connection or fetching connection from pool, update stats and then return the connection reference to caller method

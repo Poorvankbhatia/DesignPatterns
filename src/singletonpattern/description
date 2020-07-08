@@ -1,0 +1,15 @@
+Singleton pattern ensures a class has only one instance , and provides global point of access to it.
+
+
+Singleton objects are used for various applications.
+-> Thread pools
+-> Objects used for logging.
+-> Objects that handle preferences or registry settings.
+
+For many of these objects if we instantiate more than one we might run into problems like inconsistent results, overuse of
+resources etc.
+
+Singleton pattern is a convention meaning only 1 object instantiated for a class.
+
+Unique instance holds the value of the instance.
+Note if we never need the instance it never gets created , Lazy initialization.

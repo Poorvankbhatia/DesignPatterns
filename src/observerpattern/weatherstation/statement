@@ -1,0 +1,20 @@
+The weather station has a WeatherData object,
+which tracks current weather conditions (temperature, humidity, and barometric pressure).
+We’d like you to create an application that initially provides three display elements:
+current conditions, weather statistics, and a simple forecast,
+all updated in real time as the WeatherData object acquires the most recent measurements.
+
+Further, this is an expandable weather station. We wants to release an API so that other developers
+can write their own weather displays and plug them right in. We’d like for you to supply that API!
+
+The three players in the system are:
+The weather station (the physical device that acquires the actual weather data),
+The WeatherData object (that tracks the data coming from the Weather Station and updates the displays),
+The display that shows users the current weather conditions.
+
+The WeatherData object knows how to talk to the physical Weather Station, to get updated data.
+The WeatherData object then updates its displays for the three different display elements:
+Current Conditions (shows temperature, humidity, and pressure), Weather Statistics, and a simple forecast.
+
+Job is to create an app that uses the WeatherData object to update three displays for
+current conditions, weather stats, and a forecast.

@@ -1,0 +1,6 @@
+The client creates some orders for buying and selling stocks (ConcreteCommands).
+Then the orders are sent to the agent (Invoker).
+The agent takes the orders and place them to the StockTrade system (Receiver).
+The agent keeps an internal queue with the order to be placed.
+Let's assume that the StockTrade system is closed each Monday, but the agent accepts orders,
+and queue them to be processed later on.

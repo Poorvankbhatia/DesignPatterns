@@ -1,0 +1,82 @@
+Whenever you see "new" think concrete.
+
+When we use new to instantiate a class we are certainly coding to an implementation and not an interface.
+Technically there is nothing wrong with using the "new" keyword. Only issue is as the application changes it impacts
+the use of "new".
+
+If a code is written to an interface, then it will work for any new classes implementing that interface via polymorphism.
+But if written to an implementation there might be trouble because the code might be changed as new classes are added.
+It violates "Open for extension & closed for modification".
+
+We should identify the aspects that vary and separate them from what stays the same.
+
+In factory pattern we encapsulate the object creation.
+Factory classes handle the details of object creation (With a create method which creates object using "new" based on certain conditions).
+=Our objects would just become the clients of these factory classes.
+The main advantage is that we remove concrete implementation from our client code , i.e Factory can have many clients
+by encapsulating object creation in one class we only have to make modification when the implementation changes.
+
+We can make the factory class static so we could directly use it without instantiating but then we can't subclass or change the
+behaviour of create object method.
+
+
+A factory method instantiates the object creation and encapsulates it in a subclass.This will decouple the client code in the super class
+from the object creating in the subclass.
+Since the factory method is abstract so the subclasses are counted to handle object creation.
+It returns a product type that is typically used within methods defined in the Superclass.
+It isolates client from knowing what kind of concrete product is actually created.
+It can be parameterized.
+
+Factory pattern encapsulates object creation by letting subclasses decide what objects to create.
+The factory method in the interface lets a class defer the instantiation to one or more concrete subclasses.
+
+Factory pattern method defines an interface to create an object but lets the subclass decide, what to instantiate.
+Factory method lets a class defer instantiation to a subclass. We encapsulate the instantiation of concrete types.
+Creator abstract class is written without knowledge of actual products being created, which is decided purely on the subclass used.
+
+-> The creator class contains the implementation of all the methods to manipulate products, except for the factory
+method. Abstract factory method is what all creator classes must implement.
+-> The concrete creator implements factoryMethod() which is the method that actually produces the product.
+-> Concrete creator is responsible for creating one or more concrete products. Only class with knowledge on how to
+create products.
+-> All products must implement the same interface so that the classes that use the products can refer to the interface
+and not the concrete class.
+
+In Factory Method pattern we decouple the implementation from its use. If we add additional products or change the products's
+implementation , it will not affect the creator.
+
+The subclasses (concrete classes) do look a lot like simple factory, but simple factory is a one shot deal, with factory methods we
+let the subclasses decide which implementation will be used.
+
+**ENCAPSULATE WHAT VARIES**
+-> factories allows us to encapsulate the behaviour of instantiation.
+
+Design principle:
+Depend on abstractions and not on implementations.
+It suggests that our high-level components should not depend on our low-level components, they both should depend on
+abstractions. (high-level components  are classes with behaviour defined in terms of other low-level components )
+
+Principles:
+-> No variable should hold reference to a concrete class(using "new"). Use a factory to get around that.
+-> No class should be derived from another concrete class. Derive from an abstraction.
+-> If u override an implemented method, then your base class wan't really an abstraction to start with. Methods
+implemented in the base class are meant to be shared by all the subclasses.
+
+We instantiate String classes all the time, its a violation but its okay because String classes are unlikely to change.
+
+Abstract factory pattern provides an interface for creating families of related/dependent objects without specifying concrete
+classes.
+
+Both Abstract factory and factory methods create objects but factory method uses inheritance and Abstract Factory uses
+composition.
+The whole point of the Factory Method Pattern is that you’re using a subclass to do your creation for you.
+In that way, clients only need to know the abstract type they are using,
+the subclass worries about the concrete type.
+So, in other words, It keep clients decoupled from the concrete types.
+
+:-> Abstract factory provides an interface for creating dependent or related objects, without specifying concrete class.
+:-> Factory method provides an interface for creating an object, but let the subclass decide which class to instantiate.
+
+In Java constructors are not polymorphic, but by allowing subclass to create an object, we are adding polymorphic
+behavior to the instantiation. In short, we are trying to achieve Pseudo polymorphism by letting the subclass to decide
+what to create, and so this Factory method is also called as Virtual constructor.

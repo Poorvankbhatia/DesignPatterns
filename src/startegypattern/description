@@ -1,0 +1,55 @@
+Strategy pattern defines a family of algorithms, encapsulates each one and make them interchangeable. Strategy
+lets you vary independently from clients that use it.
+
+It removes the algorithm from the host/context class & puts it into separate classes.
+
+Also called policy pattern, it allows an algorithm's behaviour to be selected at runtime.
+
+The only constant in software development is change.
+
+Design principle:
+Identify the aspects of your application & separate them from what stays the same.
+take what caries , "encapsulate" it So that it won't affect the rest of your code.
+
+In this way even other types of objects can use what we encapsulate into other classes.(Eg in simduck example: behaviours
+are no longer hidden in duck classes.)
+
+Design principle:
+Program to an interface not an implementation. (Program to a supertype.)
+The point is to exploit polymorphism by programming to a supertype, so that actual runtime is not locked into the code.
+Example:
+
+Programming to an implementation:
+
+Dog d = new Dog()
+d.bark()
+
+Programming to an interface:
+Animal d = new Dog();
+d.makeSound()
+
+We know its a dog but we can use animal reference polymorphically.
+
+Even better would be rather than instantiating of a subtype into the code, assign concrete implementation
+object at runtime.
+
+a = getAnimal();
+a.makeSound();
+
+HAS-A can be better than IS-A
+
+When you put two classes together like this you’re using composition.
+Instead of inheriting their behavior, the ducks get their behavior by being composed with the right behavior object.
+
+Favor composition over inheritance.
+
+Creating systems with composition gives you a lot more flexibility. Not only it lest you encapsulate a family of
+algorithms into their own set of classes but also lets you change behaviour at runtime.
+
+We rely on composition instead of inheritance.
+-> Context is composed of strategy. (Context is the class that would require changing behaviours. <<duck in simduck.>>)
+-> Instead of implementing behaviour context delegates it to strategy.
+-> Strategy is implemented as interface so that we can change behaviour without affecting context.
+
+Based on Open/Close principle:
+We don't modify the context(closed for modification) but can choose and add any implementation(open for extension).

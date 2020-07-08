@@ -1,0 +1,38 @@
+Publishers+Subscribers = Observer Pattern(Publish Subscribe pattern.)
+
+The publisher is called SUBJECT
+The subscriber is called OBSERVER
+
+The Subject Object manages some bit of data. When the data is the Subject changes the observers are notified.
+The Observers have subscribed to or registered with the Subject, to receive updates when the subject data changes.
+New data values are communicated to the observers in some form when they change.
+A single object can be a subject as well as an observer.
+
+The observer pattern defines a one-to-many dependency between objects so that when one object changes its state all of
+its dependents are notified and updated automatically.
+
+Subject is the object that holds the state and controls it. Observers don't own it but use it.
+Observers are dependent on Subject to update them when data changes.
+ONE SUBJECT TO MANY OBSERVERS
+
+Observers and Subject are loosely coupled:
+-> The only thing the Subject knows about the observer is that they implement an interface.(Observer interface)
+-> Since subject depends on a list of objects which implement the observer interface, observers can be added, deleted
+and replaced any time.
+-> Never modify Subject class when adding new type of observers. All we have to do is to implement the observer
+interface & register as an observer.
+-> Reuse Subject & Observer class since they are loosely coupled.
+-> Changes to Observer or Subject wil not affect each other.
+
+We have a Subject variable in the concrete observer. In case we want to un-register ourselves later.
+
+DESIGN PRINCIPLE : Strive for loosely coupled design for objects that interact. It minimizes dependency.
+
+
+Program to interfaces, not implementations.
+
+
+Java has several implementations of the Observer Pattern, including the general purpose java.util.Observable.
+But java.Observable is a class so you can't add observable behaviour to a class that already extends another class.
+
+

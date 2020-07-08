@@ -1,0 +1,65 @@
+The command pattern encapsulates method invocation, so that the object invoking the computation does not have to worry
+about how to do things.
+
+It encapsulates requests as an object thereby letting you parameterize other objects with different requests, queue or
+log requests and support undoable operations.
+
+It allows you to decouple the requester of action from the object that actually performs the action.
+A command object encapsulates a request to do something on a specific object.
+
+Command pattern allows us to separate an object making the request from the object that receive and execute those
+requests.
+
+-> The client is responsible for creation of the command objects.
+-> The action and receiver are bound together in the command object.
+-> The command object consists of a method named execute(), that encapsulates the actions and can be called to invoke
+the actions on the receiver.
+-> Client calls the setCommand() on the invoker object & passes it the command object, where it gets stored until needed.
+-> At some point in the future the invoker calls the execute() method, resulting in actions being invoked on the
+receiver.
+
+Command object encapsulates the requests by binding together a set of actions on a specific receiver. It packages the actions
+and receiver up into object that exposes just one method "execute()". When called execute causes actions to be
+invoked on the receiver.
+
+From the outside no other objects know what actions are performed on what receiver.
+
+
+Commands provide a way to package a a piece of computation and pass it around as first class objects.
+Computation may be invoked long time after the application creates the command object.
+Lets take a JobQueue for example : You can add the commands at the end of the queue, on the other end sits a group
+of threads, who take up one command object and call execute method, wait for it to finish and then discard it.
+The job queue classes are totally decoupled from the objects that are doing the computation.
+One minute a thread may be computing a financial computation, and the next it may be retrieving something from the network.
+
+
+The classes participating in the pattern are:
+- Command - declares an interface for executing an operation;
+- ConcreteCommand - extends the Command interface, implementing the Execute method by invoking the corresponding
+operations on Receiver. It defines a link between the Receiver and the action.(LightOnCommand)
+- Client - creates a ConcreteCommand object and sets its receiver;(setCommand)
+- Invoker - asks the command to carry out the request;(SimpleRemoteControl has an array to set on & off commands.)
+- Receiver - knows how to perform the operations;
+
+The Client asks for a command to be executed. The Invoker takes the command, encapsulates it and places it in a queue,
+in case there is something else to do first, and the ConcreteCommand that is in charge of the requested command,
+sending its result to the Receiver.
+
+
+There are two extremes that a programmer must avoid when using this pattern:
+1. The command is just a link between the receiver and the actions that carry out the request
+2. The command implements everything itself, without sending anything to the receiver.
+We must always keep in mind the fact that the receiver is the one who knows how to perform the
+operations needed, the purpose of the command being to help the client to delegate its request
+quickly and to make sure the command ends up where it should.
+
+
+The main motivation for using the Command pattern is that the executor of the command does not need to know anything
+at all about what the command is, what context information it needs on or what it does.
+All of that is encapsulated in the command.
+
+
+In this case if we need to add a new command type we need to change the invoker as well.
+And this would violate the Open Close Principle (OCP). In order to have the ability to
+add new commands with minimum of effort we have to make sure that the invoker is aware only about the
+abstract command class or interface.

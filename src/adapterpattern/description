@@ -1,0 +1,26 @@
+The Adapter pattern:
+
+It converts interface of a class into another interface that the clients expect.
+Adapter lets classes work together that otherwise would have been incompatible interface.
+
+We wrap the object that has an incompatible interface with an object that implements the correct one.
+
+It decouples the clients from the implemented interface & if we expect the interface to change over time the adapter
+encapsulates that change so that the client does not need to modify each time it needs to operate against a different
+interface.
+
+-> The client is implemented against a target interface.
+-> The adapter implements the target interface & holds an instance of the adaptee.
+-> The client makes a request to the adapter by calling a method on it using target interface.
+-> The adapter translates the request into one or more calls on the adaptee using the adaptee interface.
+-> Client receives the results of the call & never knows adapter is doing the translation.
+
+**Client and Adaptee are decoupled, neither knows about the other**
+
+
+Job of implementing an adapter is proportional to the size of interface you need to support.
+
+Object adapters and class adapters are 2 different ways of adapting.(Composition vs Inheritance)
+Since class adapter uses multiple inheritance so can't be used in Java.
+
+Since Object adapter uses composition it can not only adapt to the adaptee class but any of uts subclasses.

@@ -1,0 +1,3 @@
+Create a message publisher of type Subject and three subscribers of type Observer.
+Publisher will publish the message periodically to all subscribed or attached observers and they will print the updated
+message to console.
