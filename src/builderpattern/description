@@ -1,0 +1,10 @@
+Separate the construction of a complex object from its representation so that the same construction process can be used
+to create different representations.
+
+It encapsulates the construction of a Product & allows it to be constructed in steps.
+Hides the internal representation of the product from the client.
+
+Builder pattern also helps minimizing the number of parameters in constructor and
+thus there is no need to pass in null for optional parameters to the constructor.
+
+Object is always instantiated in a complete state rather than sitting in an incomplete state until the developer calls.
