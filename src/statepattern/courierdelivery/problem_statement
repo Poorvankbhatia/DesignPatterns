@@ -1,0 +1,3 @@
+Simulate a courier delivery system where packages can be in different states during transitions.
+
+Acknowledged, Shipped, InTransition, OutForDelivery, Delivered.

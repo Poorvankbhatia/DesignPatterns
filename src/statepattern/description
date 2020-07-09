@@ -18,9 +18,16 @@ so they are interchangeable.
 Concrete states handle request from the context. Each concrete state provides its own implementation for a request. In
 this way when the context changes state behaviour will change as well.
 
-When state transitions are fixed they are appropriate put in context otherwise states.
+When state transitions are fixed they are appropriate put in context otherwise states.(Done in courier delivery example.)
 The disadvantage of having state transitions is that we create dependencies between state classes, it can be minimized
 by using getter-setter method on the context.
+
+The disadvantage of having state transitions in the state classes is that we create dependencies between the state classes.
+In our implementation of the GumballMachine we tried to minimize this by using getter methods on the Context,
+rather than hardcoding explicit concrete state classes.
+Notice that by making this decision, you are making a decision as to which classes are
+closed for modification— the Context or the state classes—as the system evolves.
+
 
 The states are used by context to represent its internal state and behaviour, so all the request from state comes from the
 context, Clients don't directly change the state of the context.
@@ -30,3 +37,20 @@ your state objects do not keep their owm internal context.
 To share states, assign each state a static instance variable, if your state needs to make use of instance variable or
 methods in the context, you will also have to give it a reference to the context in each handler method.
 
+With State pattern we have a set of behaviours encapsulated in state objects; at any time the context is delegating to
+those states. Over time the current state changes across the set of objects to reflect the internal state of context,
+so the context behaviour changes over time as well. Client knows a very little about the state of the objects.
+
+With strategy client usually specifies the strategy object that the context is composed of.Now, while the pattern
+provides the flexibility to change the strategy object at runtime, often there is a strategy object that is
+most appropriate for a context object.
+
+Strategy Pattern as a flexible alternative to subclassing
+
+State Pattern as an alternative to putting lots of conditionals in your context;
+by encapsulating the behaviors within state objects,
+you can simply change the state object in context to change its behavior.
+
+
+Context objects change state over time according to some well-defined state transitions.
+In other words, changing behavior is built in to state pattern scheme
