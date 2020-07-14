@@ -1,7 +1,7 @@
 # DesignPatterns
 Description and examples of various design patterns in Java.
 
-Patterns are normally divided into different groups:
+Design patterns are normally divided into different groups:
 
 * Behavioural Patterns:
 
