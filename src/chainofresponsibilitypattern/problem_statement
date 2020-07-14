@@ -1,0 +1,4 @@
+Use Chain of Responsibility to create a chain for handling authentication requests.
+
+So, the input authentication provider will be a string, and each authentication processor will be a
+separate processor object.

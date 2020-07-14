@@ -1,0 +1,9 @@
+Each object in the chain acts as a handler and has a successor object.
+If it can handle the request, it does; otherwise, it forwards the request to its successor.
+
+Decouples the sender of the request and its receivers.
+Simplifies your object because it doesn’t have to know the chain’s structure and keep direct references to its members.
+Allows you to add or remove responsibilities dynamically by changing the members or order of the chain.
+
+Commonly used in windows systems to handle events like mouse clicks and keyboard events.
+
